@@ -1,2 +1,2 @@
 # Stock-Market-at-Future
-Predıction of the prıces of stock
+Predicting the prices of stock market
