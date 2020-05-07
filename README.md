@@ -33,8 +33,8 @@ The stock price prediction is done via the advanced regression using Long Term S
 Phase one: Explore Data  
 
 - [x] Loading Data
-- [ ] Data Exploration 
-- [ ] Preprocessing 
+- [x] Data Exploration 
+- [x] Preprocessing 
 - [ ] Data Visualisation 
 
 Phase two: Machine Learning
