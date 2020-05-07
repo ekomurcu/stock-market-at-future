@@ -1,0 +1,6 @@
+name: stats
+dependencies:
+  - numpy
+  - pandas
+  - tensorflow
+  - matplotlib
