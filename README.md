@@ -13,7 +13,7 @@ conda env update --prefix ./env --file environment.yml  --prune
 - Create `data` directory in project directory 
 - Download `.csv` files from there [link](https://www.kaggle.com/ehallmar/daily-historical-stock-prices-1970-2018)
 - Add files to `data` directory.
-
+- Go to `load_data.py` and change the `FILE_PATH` variable with your path. 
 
 
 Predicting the prices of stock market
@@ -32,7 +32,7 @@ The stock price prediction is done via the advanced regression using Long Term S
 
 Phase one: Explore Data  
 
-- [ ] Loading Data
+- [x] Loading Data
 - [ ] Data Exploration 
 - [ ] Preprocessing 
 - [ ] Data Visualisation 
