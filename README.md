@@ -35,17 +35,18 @@ Phase one: Explore Data
 - [x] Loading Data
 - [x] Data Exploration 
 - [x] Preprocessing 
-- [ ] Data Visualisation 
+- [x] Data Visualisation 
+
 
 Phase two: Machine Learning
 
-- Comming soon
+- Coming soon
 
 Phase three: Optimization
 
-- Comming soon
+- Coming soon
 
 Phase four: Review
 
-- Comming soon
+- Coming soon
 

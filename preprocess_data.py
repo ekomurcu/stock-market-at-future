@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def convert_to_datetime(data):
     print(type(data['date'].iloc[0]))
     # The date attribute is string type object.It is better to convert it to datetime object to wrangle.
@@ -15,13 +16,14 @@ def convert_to_datetime(data):
 def separate_data(data):
     # Separating the data according to the economic recessions in the USA.
     # Information about the recession dates retrieved from the site below:
-    # https: // en.wikipedia.org / wiki / List_of_recessions_in_the_United_States
+    # https://en.wikipedia.org/wiki/List_of_recessions_in_the_United_States
 
     after_2009 = data[data['date'].dt.year > 2009]
     between_2001_07 = data[(data['date'].dt.year < 2007) & (data['date'].dt.year > 2001)]
     between_91_2001 = data[(data['date'].dt.year < 2001) & (data['date'].dt.year > 1991)]
     between_82_90 = data[(data['date'].dt.year < 1990) & (data['date'].dt.year > 1982)]
     before_80 = data[data['date'].dt.year < 1980]
+
     after_2009.head()
     print("The minimum year of the dataset is: " + str(min(after_2009['date'].dt.year)))
     # So, splitting the data works as what we expected.
