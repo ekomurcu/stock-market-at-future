@@ -37,6 +37,7 @@ Phase one: Explore Data
 - [x] Preprocessing 
 - [x] Data Visualisation 
 
+
 Phase two: Machine Learning
 
 - Coming soon

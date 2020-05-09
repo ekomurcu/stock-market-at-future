@@ -10,3 +10,4 @@ data_frame = separate_data(data_frame)
 # set ticker to Apple Inc. Company
 ticker = "AAPL"
 visualise(data_frame, ticker)
+
