@@ -1,5 +1,6 @@
 def explore_data(data):
-    # Giving basic information regarding the dataset such as shape, data types and descriptive statistics that summarize columns
+    # Giving basic information regarding the dataset such as shape, data types and descriptive statistics that
+    # summarize columns
     print("Data Dimensionality: ", data.shape)
     print("There are " + str(data.shape[0]) + " rows and " + str(
         data.shape[1]) + " attributes in historical stock prices data")
