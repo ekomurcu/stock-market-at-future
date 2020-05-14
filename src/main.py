@@ -15,6 +15,5 @@ data_frame = separate_data(data_frame)
 
 # set ticker to Apple Inc. Company
 ticker = "AAPL"
-print("The stock price data of the ticker "+ ticker +" is being visualised...")
+print("The stock price data of the ticker " + ticker + " is being visualised...")
 visualise(data_frame, ticker)
-
