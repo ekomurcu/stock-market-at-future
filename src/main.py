@@ -17,3 +17,6 @@ data_frame = separate_data(data_frame)
 ticker = "AAPL"
 print("The stock price data of the ticker " + ticker + " is being visualised...")
 visualise(data_frame, ticker)
+
+print("The stock price data of the ticker " + ticker + " is being analyzed..")
+print("Stock prediction of the ticker " + ticker + " has started via Linear Regression..")

@@ -2,10 +2,10 @@ import pandas as pd
 
 
 def convert_to_datetime(data):
-    print("The date attribute is " + type(data['date'].iloc[0]) +" type object.")
+    print("The date attribute is " + str(type(data['date'].iloc[0])) +" type object.")
     # The date attribute is string type object.It is better to convert it to datetime object to wrangle.
     data['date'] = pd.to_datetime(data['date'])
-    print("The date attribute is " + type(data['date'].iloc[0]) +" type object after transformation.")
+    print("The date attribute is " + str(type(data['date'].iloc[0])) +" type object after transformation.")
     # Now it's date time object.
 
     print(data['date'].head())
