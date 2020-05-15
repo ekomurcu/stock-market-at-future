@@ -2,13 +2,13 @@ import pandas as pd
 
 
 def convert_to_datetime(data):
-    print(type(data['date'].iloc[0]))
+    print("The date attribute is " + str(type(data['date'].iloc[0])) +" type object.")
     # The date attribute is string type object.It is better to convert it to datetime object to wrangle.
     data['date'] = pd.to_datetime(data['date'])
-    print(type(data['date'].iloc[0]))
+    print("The date attribute is " + str(type(data['date'].iloc[0])) +" type object after transformation.")
     # Now it's date time object.
 
-    data['date'].head()
+    print(data['date'].head())
     print("The minimum year of the dataset is: " + str(min(data['date'].dt.year)))
     print("The maximum year of the dataset is: " + str(max(data['date'].dt.year)))
     return data

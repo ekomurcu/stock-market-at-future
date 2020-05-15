@@ -40,7 +40,9 @@ Phase one: Explore Data
 
 Phase two: Machine Learning
 
-- Coming soon
+- [ ] Linear Regression
+- [ ] Moving Average
+- [ ] RNN and LSTM
 
 Phase three: Optimization
 
