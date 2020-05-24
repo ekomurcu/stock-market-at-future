@@ -9,7 +9,6 @@ def convert_to_datetime(data, verbose=1):
     if verbose:
         print("The date attribute is " + str(type(data['date'].iloc[0])) + " type object after transformation.")
         # Now it's date time object.
-
         print(data['date'].head())
         print("The minimum year of the dataset is: " + str(min(data['date'].dt.year)))
         print("The maximum year of the dataset is: " + str(max(data['date'].dt.year)))
@@ -26,6 +25,7 @@ def filter_by_year(data, start=0, end=0):
         return data[(data['date'].dt.year < end)]
 
 
+
 def filter_by_company(whole_data, stock):
     return whole_data[whole_data['ticker'] == stock]
 
@@ -39,6 +39,7 @@ def explore_years(data_frames, verbose=1):
         print('Row count of Between 1991 and 2001: ', data_frames[2].shape[0])
         print('Row count of Between 1982 and 1990: ', data_frames[3].shape[0])
         print('Row count of Before 1980: ', data_frames[4].shape[0])
+
 
 
 def separate_data(data):
