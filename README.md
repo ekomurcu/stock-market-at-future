@@ -30,7 +30,7 @@ The stock price prediction is done via the advanced regression using Long Term S
 
 ## Project Specs 
 
-Phase one: Explore Data  
+Phase 1: Explore Data  
 
 - [x] Loading Data
 - [x] Data Exploration 
@@ -38,17 +38,31 @@ Phase one: Explore Data
 - [x] Data Visualisation 
 
 
-Phase two: Machine Learning
+Phase 2: Statistical and simple Machine learning models
 
-- [ ] Linear Regression
 - [ ] Moving Average
-- [ ] RNN and LSTM
+- [ ] Linear Regression
+- [ ] Shallow Neural Networks
 
-Phase three: Optimization
+Phase 3: Deep Learning with complex models
 
-- Coming soon
+- [ ] Deep Neural Networks
+- [ ] Recurrent Neural Networks (RNN)
+- [ ] Long Short Time Memory (LSTM)
+- [ ] LSTM with Convolutional Layer
 
-Phase four: Review
+Phase 4: Tuning hyperparameters
 
-- Coming soon
+- [ ] Window size
+- [ ] Window shift
+- [ ] Learning rate
+- [ ] Batch size
+- [ ] Number of hidden layers
+- [ ] Number of neurons
+- [ ] Training - test split ratio
+
+Phase 5: Review
+
+- [ ] Results
+- [ ] Report
 

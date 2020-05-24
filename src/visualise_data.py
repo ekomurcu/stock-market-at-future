@@ -14,3 +14,29 @@ def visualise(ticker, actual, predicted, attribute, nof_datepts, multi=False):
     plt.xlabel('Date', fontsize=18)
     plt.ylabel(str(attribute) + ' Prices of ' + str(ticker), fontsize=18)
     plt.show()
+
+
+# Plot time series data across days
+def plot_series(days, prices, format="-", start=0, end=None):
+    plt.plot(days[start:end], prices[start:end], format)
+    plt.xlabel("Date")
+    plt.ylabel("Prices")
+    plt.grid(True)
+
+
+# Plot the actual  and the predicted test data
+def plot_two(test_days, actual, predicted):
+    plt.figure(figsize=(18, 9))
+    plot_series(test_days, actual)
+    plot_series(test_days, predicted)
+    plt.show()
+
+
+# Plot mean squared error of a ML model across epochs
+def plot_mse(model_history):
+    plt.figure(figsize=(9, 6))
+    plt.plot(model_history.history["loss"][5:])
+    plt.title('Model Loss')
+    plt.ylabel('MSE')
+    plt.xlabel('epoch')
+    plt.show()

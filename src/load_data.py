@@ -1,6 +1,6 @@
 import pandas as pd
 
-FILE_PATH = "C:\\Users\\EGEMEN\\Desktop\\ml_project\\data\\historical_stock_prices.csv"
+FILE_PATH = "..\\data\\historical_stock_prices.csv"
 
 
 def load_data():
