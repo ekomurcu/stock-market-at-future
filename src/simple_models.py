@@ -36,8 +36,8 @@ def linear_regression(prices, days, threshold=0.67, window_size=30, batch_size=6
     print("Parameters")
     print(lr_layer.get_weights())
     # Predictions
-    predicted = fr.compute_predicted(lr_model, prices, split, window_size)
-    mse, mae = fr.evaluate_model(history_lr, test_prices, predicted, test_days)
+    predicted_lr = fr.compute_predicted(lr_model, prices, split, window_size)
+    mse, mae = fr.evaluate_model(history_lr, test_prices, predicted_lr, test_days)
     return mse, mae
 
 

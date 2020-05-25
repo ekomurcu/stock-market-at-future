@@ -47,7 +47,7 @@ Phase 2: Statistical and simple Machine learning models
 Phase 3: Deep Learning with complex models
 
 - [x] Deep Neural Networks
-- [ ] Recurrent Neural Networks (RNN)
+- [x] Recurrent Neural Networks (RNN)
 - [ ] Long Short Time Memory (LSTM)
 - [ ] LSTM with Convolutional Layer
 
@@ -63,6 +63,7 @@ Phase 4: Tuning hyperparameters
 
 Phase 5: Review
 
+- [ ] Refactor
 - [ ] Results
-- [ ] Report
+- [ ] Report    
 
