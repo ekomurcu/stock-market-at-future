@@ -32,8 +32,13 @@ print("The stock price data of the ticker " + ticker + " is being visualised..."
 vis.visualise(ticker, pr.filter_by_company(combined_datasets, ticker), apple, attribute, date_pts)
 input("Press Enter to continue...")
 print("The stock price data of the ticker " + ticker + " is being analyzed..")
-print("Stock prediction of the ticker " + ticker + " has started via Linear Regression..")
 prices = pr.filter_by_company(data_frames[0], ticker)[attribute].to_numpy()
 days = pr.filter_by_company(data_frames[0], ticker)['date'].to_numpy()
+print("Stock prediction of the ticker " + ticker + " has started via Linear Regression..")
 lr_mse, lr_mae = simple.linear_regression(prices, days, threshold=0.67, window_size=30, batch_size=32, window_shift=1,
                                           nof_epochs=100, lr_rate=1e-6)
+print("Stock prediction of the ticker " + ticker + " has started via Neural Networks..")
+hidden_neurons = [10]
+lr_mse, lr_mae = simple.neural_networks(prices, days, hidden_neurons, threshold=0.67, window_size=30, batch_size=32,
+                                        window_shift=1,
+                                        nof_epochs=100, lr_rate=1e-6)
