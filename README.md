@@ -41,12 +41,12 @@ Phase 1: Explore Data
 Phase 2: Statistical and simple Machine learning models
 
 - [ ] Moving Average
-- [ ] Linear Regression
-- [ ] Shallow Neural Networks
+- [x] Linear Regression
+- [x] Shallow Neural Networks
 
 Phase 3: Deep Learning with complex models
 
-- [ ] Deep Neural Networks
+- [x] Deep Neural Networks
 - [ ] Recurrent Neural Networks (RNN)
 - [ ] Long Short Time Memory (LSTM)
 - [ ] LSTM with Convolutional Layer
