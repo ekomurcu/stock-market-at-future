@@ -48,7 +48,7 @@ Phase 3: Deep Learning with complex models
 
 - [x] Deep Neural Networks
 - [x] Recurrent Neural Networks (RNN)
-- [ ] Long Short Time Memory (LSTM)
+- [x] Long Short Time Memory (LSTM)
 - [ ] LSTM with Convolutional Layer
 
 Phase 4: Tuning hyperparameters
