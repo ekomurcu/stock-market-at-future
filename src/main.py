@@ -5,7 +5,6 @@ import preprocess_data as pr
 import simple_models as smp
 import complex_models as cmp
 
-
 verbose = 0
 print("The data of stock prices is being loaded...")
 data_frame = load_data()
@@ -37,13 +36,24 @@ print("The stock price data of the ticker " + ticker + " is being analyzed..")
 prices = pr.filter_by_company(data_frames[0], ticker)[attribute].to_numpy()
 days = pr.filter_by_company(data_frames[0], ticker)['date'].to_numpy()
 print("Stock prediction of the ticker " + ticker + " has started via Linear Regression..")
-lr_mse, lr_mae = smp.linear_regression(prices, days, threshold=0.67, window_size=30, batch_size=32, window_shift=1,
-                                          nof_epochs=100, lr_rate=1e-6)
+# lr_mse, lr_mae = smp.linear_regression(prices, days, threshold=0.67, window_size=30, batch_size=32, window_shift=1,
+#                                          nof_epochs=100, lr_rate=1e-6)
 print("Stock prediction of the ticker " + ticker + " has started via Deep Neural Networks..")
 hidden_neurons = [10]
-lr_mse, lr_mae = smp.neural_networks(prices, days, hidden_neurons, threshold=0.67, window_size=30, batch_size=32,
-                                        window_shift=1,
-                                        nof_epochs=100, lr_rate=1e-6)
+# lr_mse, lr_mae = smp.neural_networks(prices, days, hidden_neurons, threshold=0.67, window_size=30, batch_size=32,
+#                                        window_shift=1,
+#                                        nof_epochs=100, lr_rate=1e-6)
 print("Stock prediction of the ticker " + ticker + " has started via Recurrent Neural Networks..")
-rnn_mse, rnn_mae = cmp.recurrent_nn(prices, days, threshold=0.67, window_size=30, batch_size=32, window_shift=1,
-                                          nof_epochs=100, lr_rate=1e-6)
+cells = [32, 32]
+rnn_mse, rnn_mae = cmp.recurrent_nn(prices, days, cells, threshold=0.67, window_size=30, batch_size=32, window_shift=1,
+                                    nof_epochs=100, lr_rate=1e-6)
+print("Stock prediction of the ticker " + ticker + " has started via LSTM..")
+cells = [32, 32]
+lstm_mse, lstm_mae = cmp.lstm(prices, days, cells, bi_directional=False, threshold=0.67, window_size=30,
+                                 batch_size=32, window_shift=1,
+                                 nof_epochs=100, lr_rate=1e-6)
+print("Stock prediction of the ticker " + ticker + " has started via Bi-LSTM..")
+cells = [32, 32]
+bi_lstm_mse, bi_lstm_mae = cmp.lstm(prices, days, cells, bi_directional=True, threshold=0.67, window_size=30,
+                                       batch_size=32, window_shift=1,
+                                       nof_epochs=100, lr_rate=1e-6)
