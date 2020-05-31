@@ -40,3 +40,15 @@ def plot_mse(model_history):
     plt.ylabel('MSE')
     plt.xlabel('epoch')
     plt.show()
+
+
+def plot_lr(model):
+    # plot mse across lr
+    plt.figure(figsize=(9, 6))
+    plt.semilogx(model.history["lr"], model.history["loss"])
+    print(2)
+    plt.axis([1e-8, 1e-5, 0, 30])
+    plt.title('Model Loss')
+    plt.ylabel('MSE')
+    plt.xlabel('Learning rate')
+    plt.show()
