@@ -53,13 +53,13 @@ Phase 3: Deep Learning with complex models
 
 Phase 4: Tuning hyperparameters
 
-- [ ] Window size
-- [ ] Window shift
-- [ ] Learning rate
-- [ ] Batch size
 - [ ] Number of hidden layers
 - [ ] Number of neurons
+- [ ] Learning rate
+- [ ] Batch size
 - [ ] Training - test split ratio
+- [ ] Window size
+- [ ] Window shift
 
 Phase 5: Review
 

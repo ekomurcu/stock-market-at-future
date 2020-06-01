@@ -4,7 +4,10 @@ import visualise_data as vis
 import preprocess_data as pr
 import simple_models as smp
 import complex_models as cmp
+from tensorflow import keras as kr
 
+lr_optimizer = kr.callbacks.LearningRateScheduler(
+    lambda epoch: 1e-8 * 10 ** (epoch / 20))
 verbose = 0
 print("The data of stock prices is being loaded...")
 data_frame = load_data()
@@ -25,7 +28,7 @@ if verbose == 1:
 input("Press Enter to continue...")
 # set ticker to Apple Inc. Company
 ticker = "AAPL"
-attribute = 'high'
+attribute = 'close'
 date_pts = 10
 # year = 2000
 apple = 1
@@ -36,24 +39,71 @@ print("The stock price data of the ticker " + ticker + " is being analyzed..")
 prices = pr.filter_by_company(data_frames[0], ticker)[attribute].to_numpy()
 days = pr.filter_by_company(data_frames[0], ticker)['date'].to_numpy()
 print("Stock prediction of the ticker " + ticker + " has started via Linear Regression..")
-# lr_mse, lr_mae = smp.linear_regression(prices, days, threshold=0.67, window_size=30, batch_size=32, window_shift=1,
-#                                          nof_epochs=100, lr_rate=1e-6)
+lr_mse, lr_mae = smp.linear_regression(prices, days, [lr_optimizer], n_days=365, threshold=0.8, window_size=5, batch_size=32,
+                                       window_shift=1,
+                                       nof_epochs=100, lr_rate=1e-6)
+lr = input("Pick the lowest learning rate to train: ")
+
+lr_mse, lr_mae = smp.linear_regression(prices, days, [], n_days=365, threshold=0.8, window_size=5, batch_size=32,
+                                       window_shift=1,
+                                       nof_epochs=100, lr_rate=float(lr))
+
 print("Stock prediction of the ticker " + ticker + " has started via Deep Neural Networks..")
 hidden_neurons = [10]
-# lr_mse, lr_mae = smp.neural_networks(prices, days, hidden_neurons, threshold=0.67, window_size=30, batch_size=32,
-#                                        window_shift=1,
-#                                        nof_epochs=100, lr_rate=1e-6)
+dnn_mse, dnn_mae = smp.neural_networks(prices, days, hidden_neurons, [lr_optimizer], n_days=365, threshold=0.8,
+                                       window_size=5,
+                                       batch_size=32,
+                                       window_shift=1,
+                                       nof_epochs=100, lr_rate=1e-6)
 print("Stock prediction of the ticker " + ticker + " has started via Recurrent Neural Networks..")
+lr = input("Pick the lowest learning rate to train: ")
+dnn_mse, dnn_mae = smp.neural_networks(prices, days, hidden_neurons, [], n_days=365, threshold=0.8,
+                                       window_size=5,
+                                       batch_size=32,
+                                       window_shift=1,
+                                       nof_epochs=100, lr_rate=1e-6)
+
+
 cells = [32, 32]
-rnn_mse, rnn_mae = cmp.recurrent_nn(prices, days, cells, threshold=0.67, window_size=30, batch_size=32, window_shift=1,
+rnn_mse, rnn_mae = cmp.recurrent_nn(prices, days, cells, [lr_optimizer], n_days=365, threshold=0.8, window_size=5, batch_size=32, window_shift=1,
                                     nof_epochs=100, lr_rate=1e-6)
+
+lr = input("Pick the lowest learning rate to train: ")
+
+rnn_mse, rnn_mae = cmp.recurrent_nn(prices, days, cells, [], n_days=365, threshold=0.8, window_size=5, batch_size=32, window_shift=1,
+                                    nof_epochs=100, lr_rate=float(lr))
+
+
 print("Stock prediction of the ticker " + ticker + " has started via LSTM..")
 cells = [32, 32]
-lstm_mse, lstm_mae = cmp.lstm(prices, days, cells, bi_directional=False, threshold=0.67, window_size=30,
-                                 batch_size=32, window_shift=1,
-                                 nof_epochs=100, lr_rate=1e-6)
+lstm_mse, lstm_mae = cmp.lstm(prices, days, cells, [lr_optimizer], n_days=365, bi_directional=False, threshold=0.8, window_size=30,
+                              batch_size=32, window_shift=1,
+                              nof_epochs=100, lr_rate=1e-6)
+
+
+lr = input("Pick the lowest learning rate to train: ")
+lstm_mse, lstm_mae = cmp.lstm(prices, days, cells, [lr_optimizer], n_days=365, bi_directional=False, threshold=0.8, window_size=30,
+                              batch_size=32, window_shift=1,
+                              nof_epochs=100, lr_rate=float(lr))
+
+
+
+
+
+
 print("Stock prediction of the ticker " + ticker + " has started via Bi-LSTM..")
 cells = [32, 32]
-bi_lstm_mse, bi_lstm_mae = cmp.lstm(prices, days, cells, bi_directional=True, threshold=0.67, window_size=30,
-                                       batch_size=32, window_shift=1,
-                                       nof_epochs=100, lr_rate=1e-6)
+bi_lstm_mse, bi_lstm_mae = cmp.lstm(prices, days, cells, bi_directional=True, threshold=0.8, window_size=30,
+                                    batch_size=32, window_shift=1,
+                                    nof_epochs=100, lr_rate=1e-6)
+print("Stock prediction of the ticker " + ticker + " has started via CNN-LSTM..")
+cells = [32, 32]
+cnn_lstm_mse, cnn_lstm_mae = cmp.cnn_lstm(prices, days, cells, bi_directional=False, threshold=0.8, window_size=30,
+                                          batch_size=32, window_shift=1,
+                                          nof_epochs=100, lr_rate=1e-6)
+print("Stock prediction of the ticker " + ticker + " has started via CNN-bi-LSTM..")
+cells = [32, 32]
+cnn_bi_lstm_mse, cnn_bi_lstm_mae = cmp.cnn_lstm(prices, days, cells, bi_directional=True, threshold=0.8,
+                                                window_size=30,
+                                                batch_size=32, window_shift=1,
+                                                nof_epochs=100, lr_rate=1e-6)
